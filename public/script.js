@@ -109,22 +109,22 @@ class howlingAnimalsTranslator {
         return result;
     }
 
-    // 识别函数，用于初步判断是否是此格式的兽音
-    identify(txt) {
-        txt = txt.trim();
-        // 长度检查: 至少 前缀(3)+后缀(1)+一个字符(8) = 12，且数据部分长度是8的倍数
-        if (txt.length >= 12 && ((txt.length - 4) % 8) === 0) {
-            // 检查前缀和后缀
-            if (txt[0] === this.__codeTxt[3] && txt[1] === this.__codeTxt[1] && txt[2] === this.__codeTxt[0] && txt.charAt(txt.length - 1) === this.__codeTxt[2]) {
-                // 检查所有字符是否都属于 codeTxt
-                for (let i = 0; i < txt.length; i++) {
-                    if (this.__codeTxt.indexOf(txt[i]) < 0) return false; // 发现无效字符
-                }
-                return true; // 通过所有检查
-            }
-        }
-        return false; // 不满足条件
-    }
+    // // 识别函数，用于初步判断是否是此格式的兽音
+    // identify(txt) {
+    //     txt = txt.trim();
+    //     // 长度检查: 至少 前缀(3)+后缀(1)+一个字符(8) = 12，且数据部分长度是8的倍数
+    //     if (txt.length >= 12 && ((txt.length - 4) % 8) === 0) {
+    //         // 检查前缀和后缀
+    //         if (txt[0] === this.__codeTxt[3] && txt[1] === this.__codeTxt[1] && txt[2] === this.__codeTxt[0] && txt.charAt(txt.length - 1) === this.__codeTxt[2]) {
+    //             // 检查所有字符是否都属于 codeTxt
+    //             for (let i = 0; i < txt.length; i++) {
+    //                 if (this.__codeTxt.indexOf(txt[i]) < 0) return false; // 发现无效字符
+    //             }
+    //             return true; // 通过所有检查
+    //         }
+    //     }
+    //     return false; // 不满足条件
+    // }
 }
 
 // -----------------------------------
@@ -196,11 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 先用 identify 做初步检查
-        if (!currentTranslator.identify(textToDecrypt)) {
-            outputText.value = "输入内容看起来不像用当前设置生成的兽音。";
-            return;
-        }
+        // 用 identify 做初步检查
+        // if (!currentTranslator.identify(textToDecrypt)) {
+        //     outputText.value = "输入内容看起来不像用当前设置生成的兽音。";
+        //     return;
+        // }
 
         try {
             const decryptedText = currentTranslator.deConvert(textToDecrypt);
