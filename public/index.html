@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兽音转换器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>兽音转换器</h1>
+
+        <div class="section">
+            <label for="codec">自定义兽音 (4个字符):</label>
+            <input type="text" id="codec" value="嗷呜啊~" maxlength="4" placeholder="输入4个不重复字符">
+            <span id="codec-error" class="error-message"></span>
+        </div>
+
+        <div class="section">
+            <label for="inputText">输入文本:</label>
+            <textarea id="inputText" rows="6" placeholder="在此输入原文或兽音..."></textarea>
+        </div>
+
+        <div class="controls">
+            <button id="encryptBtn">加密成兽音 →</button>
+            <button id="decryptBtn">← 解密回原文</button>
+        </div>
+
+        <div class="section">
+            <label for="outputText">输出结果:</label>
+            <textarea id="outputText" rows="6" readonly placeholder="结果将显示在这里..."></textarea>
+            <button id="copyBtn">复制结果</button>
+             <span id="copy-status" class="status-message"></span>
+        </div>
+
+         <div class="info">
+            <p>说明：</p>
+            <ul>
+                <li>输入原文，点击“加密成兽音”进行转换。</li>
+                <li>输入兽音，点击“解密回原文”进行还原。</li>
+                <li>您可以在“自定义兽音”框中输入4个不同的字符来改变加密/解密所用的“钥匙”。加密和解密时必须使用相同的4个字符。</li>
+                <li>默认兽音为 "嗷呜啊~"。</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
